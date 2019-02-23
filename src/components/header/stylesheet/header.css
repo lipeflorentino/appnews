@@ -1,0 +1,50 @@
+@media only screen and (max-width: 600px) {
+    
+    /* HEADER mobile css */
+                
+    .header-info h1{
+        font-size: 25px;
+        width: 50%;
+        float: left;
+        font-weight: bold;
+    }   
+    .hi-title{
+        width: 50%;
+    }
+    .hi-title hr{        
+        display: none;
+    }
+    .header-info .switch{
+        padding-left: 6rem;
+        margin: 2rem 0px 1.68rem 0;
+        width: 50%;
+        float: right;
+    }
+
+    .header-info .switch label {
+        font-size: .74rem;
+    }
+    .header-info .switch label .lever{
+        height: 29px;
+        width: 63.8px;
+        margin: 0;
+        float: right;
+    }
+    .header-info .switch label .lever p.p-light,
+    .header-info .switch label .lever p.p-dark{
+        position: absolute;
+        top: -3px;
+        left: 28px;
+    }
+    .header-info .switch label .lever p.p-dark{
+        opacity: 0;
+    }
+
+    .header-info .switch label .lever:after{
+        width: 23.2px;
+        height: 23.2px;
+        left: 2px;
+        top: 3px;
+    }
+    
+}

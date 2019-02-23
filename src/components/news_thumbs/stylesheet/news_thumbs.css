@@ -1,0 +1,82 @@
+@media only screen and (max-width: 600px){
+
+    #app-container main .row .col{
+        padding:0;
+    }
+    #app-container main .row .col div{
+        /*width: 63%;
+        height: 100%;
+        position: absolute*/
+    }
+    .card .card-image .card-title {
+        color: #fff;
+        position: absolute;
+        top: 132px;
+        right: 0px;
+        left: 223px;
+        width: 123px;
+        padding: 8px 30px
+    }
+    .card-title i.small {
+        font-size: 32px;
+        float: left;
+        width: 50%;
+        color: #2699FB;
+        padding-top: 0;
+    }
+    .card .card-image .card-title p{
+        font-family: arial;
+        font-weight: bold;
+        float: left;
+        font-size: 22px;
+        width: 50%;
+        margin: 0;
+        padding-left: 7px;
+        padding-bottom: 0;
+        color: #2699FB;
+    }
+    .card .card-content p{
+        font-weight: bold;
+    }
+    .card .card-content{
+        color:#2699FB;
+    }
+    .n-infos{
+        position: relative;
+        padding: 12px 0;
+    }
+    .n-titulo{
+        width: 50%;
+        float: left;
+    }
+    .n-data{
+        width: 50%;
+        float: right;
+        padding-left:39px;
+    }
+    .n-titulo i.small{
+        float: left;
+        font-size: 2rem;
+        padding-right: 5px;
+    }
+    .n-data i.small {
+        float: left;
+        font-size: 2rem;
+        padding-right: 5px;
+    }
+    .n-titulo p{
+        padding: 5px;
+    }
+    .n-data p{
+        padding:5px;
+    }
+    .mycarousel{
+        overflow: hidden;
+        width: 100%;
+        min-height: 350px;
+        position: absolute
+    }
+    .mydots span{
+        background-color:#BCE0FD !important;
+    }
+}

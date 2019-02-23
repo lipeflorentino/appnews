@@ -1,0 +1,38 @@
+@media only screen and (max-width: 600px){
+    .np-infos{
+        min-height: 100px;
+        padding: 10px 24px;
+        background-color: #FFFFFF;
+        margin: 10px 0;
+        color:#2699FB;
+    }
+
+    .np-infos p{
+        margin:4px 0;
+    }
+    .np-infos h3{
+        font-size:14px;
+        font-weight: bold;
+        margin: 4px 0;
+    }
+    .np-infos .col p.np-data{
+        font-size: 9px;
+        padding: 3px 0;
+    }
+    .np-infos .col p.np-descricao{
+        font-size: 12px;
+        margin: 4px 0;
+    }
+    .np-img{
+        position: relative;
+        height: 80px;
+        width: 80px;
+        float: right;
+    }
+
+    .np-img img{
+        padding:5px;
+        width: 100%;
+        height: 100%;
+    }
+}

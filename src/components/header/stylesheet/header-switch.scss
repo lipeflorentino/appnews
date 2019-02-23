@@ -1,0 +1,27 @@
+$darker-blue: #2699FB;
+$dark-blue: #7FC4FD;
+$water-blue: #BCE0FD;
+$lighter-blue: #F1F9FF;
+$white: #FFFFFF;
+    
+/* HEADER LIGHT MODE */
+
+.light-mode{.header-info {.switch {label {color: $darker-blue;}}}}
+.light-mode {.header-info{.switch {label{.lever{background-color: $water-blue;}}}}}
+.light-mode{.header-info {.switch {label {.lever:after{background-color: $white;}}}}}
+.light-mode{.header-info{color:$darker-blue;}} 
+.header-info .switch label .lever p.p-light{color:$white;}
+
+
+/* HEADER DARK MODE */
+
+.dark-mode{.header-info{color:$white;}} 
+.header-info .switch label .lever p.p-dark{color:$white;}
+
+/* SWITCH CHECKED */
+
+.switch label input[type=checkbox]:checked+.lever{background-color: $darker-blue;}
+.switch label input[type=checkbox]:checked+.lever:after{background-color: $white;}
+.switch label input[type=checkbox]:checked+.lever:after{left:39px;}
+.switch label input[type=checkbox]:checked+.lever p.p-light{opacity:0;}
+.switch label input[type=checkbox]:checked+.lever p.p-dark{color:$white;opacity:1;left: 5px;}

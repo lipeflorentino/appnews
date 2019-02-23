@@ -1,0 +1,32 @@
+@media only screen and (min-width: 680px){
+    .news-preview-desktop{
+        padding:50px;
+    }
+    .npd-thumbs{
+        margin:15px 0;
+    }    
+    .npd-infos p{
+        margin:4px 0;
+    }
+    .npd-infos h3{
+        font-size:1.3rem;
+        font-weight: bold;
+        margin: 4px 0;
+    }
+    .npd-infos .col p.npd-data{
+        font-size: 12px;
+        padding: 3px 0;
+    }
+    .npd-infos .col p.npd-descricao{
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    .npd-img{
+        position: relative;
+        width: 100%;
+    }
+
+    .npd-img img{        
+        width: 100%;        
+    }
+}

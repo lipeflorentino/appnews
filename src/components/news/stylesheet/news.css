@@ -1,0 +1,25 @@
+.clearfix{
+    clear: both;
+}
+
+
+@media only screen and (min-width: 680px) {
+    .nt-container{
+        padding:40px;
+        background-color: #FFFFFF;
+    }
+    .mobile-thumbs{
+        display: none;
+    }
+    .desktop-thumbs{
+        display: block;
+    }
+    .dark-mode main .row .col .nt-container{
+        background-color: #7FC4FD;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    
+}

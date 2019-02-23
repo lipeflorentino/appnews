@@ -1,0 +1,36 @@
+{
+  "name": "appnews",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "import": "0.0.6",
+    "material-design-icons": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "re-carousel": "^2.3.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-image-file": "^0.3.0",
+    "react-infinite-loader": "^1.0.3",
+    "react-infinite-scroll-component": "^4.5.0",
+    "react-materialize": "^2.6.0",
+    "react-responsive": "^6.1.1",
+    "react-scripts": "2.1.5",
+    "superagent": "^4.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

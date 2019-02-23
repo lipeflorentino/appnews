@@ -1,0 +1,50 @@
+@media only screen and (min-width: 680px) {
+    
+    /* HEADER desktop css */
+    
+    .header-info .hi-title h1{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .hi-title{        
+        width: 100%;
+        float: left;        
+    }
+    .hi-title hr{
+        margin-top: 48px;
+        background-color:#F1F9FF;
+    }
+    .header-info .switch{
+        padding-left: 6rem;
+        margin: 8px 0;
+        width: 100%;
+        float: left;
+    }
+
+    .header-info .switch label {
+        font-size: .74rem;
+    }
+    .header-info .switch label .lever{
+        height: 29px;
+        width: 63.8px;
+        margin: 0;
+        float: right;
+    }
+    .header-info .switch label .lever p.p-light,
+    .header-info .switch label .lever p.p-dark{
+        position: absolute;
+        top: -3px;
+        left: 28px;
+    }
+    .header-info .switch label .lever p.p-dark{
+        opacity: 0;
+    }
+
+    .header-info .switch label .lever:after{
+        width: 23.2px;
+        height: 23.2px;
+        left: 2px;
+        top: 3px;
+    }
+    
+}

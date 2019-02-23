@@ -1,0 +1,24 @@
+$darker-blue: #2699FB;
+$dark-blue: #7FC4FD;
+$water-blue: #BCE0FD;
+$lighter-blue: #F1F9FF;
+$white: #FFFFFF;
+
+.dark-mode main .row .col .news-preview div .infinite-scroll-component .np-infos{
+    background-color: $darker-blue;
+    color:$white;
+}
+@media only screen and (min-width: 680px){
+    .dark-mode main .row .col .news-preview-desktop .npd-infos .col .npd-thumbs{    
+        color:$white;
+    }
+    .light-mode main .row .col .news-preview-desktop .npd-infos .col .npd-thumbs{    
+        color:$darker-blue;
+    }
+    .light-mode main .row .col .news-preview-desktop{
+        background-color: $lighter-blue;        
+    }
+    .dark-mode main .row .col .news-preview-desktop{
+        background-color: $water-blue;        
+    }
+}

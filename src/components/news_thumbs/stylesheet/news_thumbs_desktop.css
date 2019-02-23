@@ -1,0 +1,78 @@
+@media only screen and (min-width: 680px){
+    .dt-img{
+        position: relative;
+        width: 100%;
+    }
+    .dt-img img{                
+        width: 100%;
+    }
+    .dt-title{
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        width: 123px;
+        padding: 8px 30px;
+    }
+    .dt-title i.small {
+        font-size: 32px;
+        float: left;
+        width: 50%;
+        color: #2699FB;
+        padding-top: 0;
+    }
+    .dt-title p{
+        font-family: arial;
+        font-weight: bold;
+        float: left;
+        font-size: 22px;
+        width: 50%;
+        margin: 0;
+        padding-left: 7px;
+        padding-bottom: 0;
+        color: #2699FB;
+    }    
+    .n-infos{
+        position: relative;
+        padding: 12px 0;
+        color:#2699FB;
+        margin: 10px 0;
+        font-size: 14px;        
+    }
+    .n-infos h3{
+        font-size: 1.3rem;
+        line-height: 110%;
+        margin: 12px 0;
+    }
+    .n-infos p{
+        float: left;
+        margin: 0;
+        padding-left: 7px;
+        padding: 5px 0 20px 0;
+        color: #2699FB;
+    }
+    .n-titulo{
+        width: 50%;
+        float: left;
+    }
+    .n-data{
+        width: 50%;
+        float: right;
+        padding-left:39px;
+    }
+    .n-titulo i.small{
+        float: left;
+        font-size: 2rem;
+        padding-right: 5px;
+    }
+    .n-data i.small {
+        float: left;
+        font-size: 2rem;
+        padding-right: 5px;
+    }
+    .n-titulo p{
+        padding: 5px;
+    }
+    .n-data p{
+        padding:5px;
+    }
+}

@@ -1,0 +1,25 @@
+$darker-blue: #2699FB;
+$dark-blue: #7FC4FD;
+$water-blue: #BCE0FD;
+$lighter-blue: #F1F9FF;
+$white: #FFFFFF;
+
+@media only screen and (max-width: 600px) {
+    
+/* NEWS_THUMBS DARK MODE */
+
+.dark-mode main .row .col .card {background-color: #2699FB;}    
+.dark-mode main .row .col .card .card-content {color: #FFFFFF;}    
+.dark-mode main .row .col div .mydots span{background-color:white !important;}    
+    
+    
+}
+
+@media only screen and (min-width: 680px) {
+    
+/* NEWS_THUMBS DARK MODE */
+
+.dark-mode main .row .col .nt-container .row .col .n-infos,
+.dark-mode main .row .col .nt-container .row .col .n-infos p{color: #FFFFFF;}       
+    
+}
