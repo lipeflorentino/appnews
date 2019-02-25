@@ -79,4 +79,9 @@
     .mydots span{
         background-color:#BCE0FD !important;
     }
+    #click-icon{
+        position: absolute;
+        width: 40px;
+        height: 30px;
+    }
 }

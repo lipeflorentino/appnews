@@ -56,6 +56,7 @@ class NewsPreviewDesktop extends Component {
         
         return (
             <div className="news-preview-desktop">
+                <a href="https://www.google.com" target="_blank">
                 {
                     news.map((n, i) => {
                       return (
@@ -74,6 +75,7 @@ class NewsPreviewDesktop extends Component {
                     })
                 }
                 <div className="clearfix"></div>
+                </a>
             </div>
         )
     }

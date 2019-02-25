@@ -12,7 +12,7 @@ const Header = () => (
     <div className="header-info" >
         <div className="switch">
             <label>
-              <input name="on" type="checkbox" value='1' onClick={toggleDarkLight}></input>
+              <input id="pid" name="on" type="checkbox" value='1' onClick={toggleDarkLight}></input>
               <span className="lever"><p className="p-light">LIGHT</p><p className="p-dark">DARK</p></span>
             </label>
         </div>

@@ -5,6 +5,8 @@ import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
 import Carousel from 're-carousel';
 import IndicatorDots from './javascript/indicator-dots.js';
+//importando funcao para computar like
+import { addALike } from './javascript/add_a_like.js';
 
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
@@ -18,10 +20,14 @@ class NewsThumbs extends Component {
             isLoading: false,
             error: null,
         };
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         this.setState({ isLoading: true });
+        
+        document.getElementById("app-container").addEventListener('click', this.handleClick);        
+        
         fetch(api)
           .then(response => {
             if (response.ok) {
@@ -34,7 +40,7 @@ class NewsThumbs extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
         
     }
-    
+        
     render() {
         const { news, isLoading, error } = this.state;
         
@@ -52,11 +58,16 @@ class NewsThumbs extends Component {
                     {
                         news.map((n, key) =>                        
                             <Card key={key} className='small' 
-                                header={<CardTitle image={url + n.imagem}><Icon small>favorite</Icon>
-                                <p>{n.num_likes}</p></CardTitle>}>
+                                header={
+                                    <CardTitle image={url + n.imagem}>
+                                        <Icon small>favorite</Icon>
+                                        <p>{n.num_likes}</p>
+                                    </CardTitle>
+                                        }>
                                 <p>{n.descricao}</p>
                                 <div className="n-infos">
                                     <span className="n-titulo">
+                                        <div id={'thumbs-id'+n.id}></div>
                                         <Icon small>public</Icon> 
                                         <p>{n.titulo} </p>
                                     </span>
@@ -72,6 +83,13 @@ class NewsThumbs extends Component {
             </Fragment>
         );
     }
+    
+    handleClick() {
+        this.setState({
+          message: this.state.news.id,
+        });
+        addALike(this.state.news.id);                
+      }
 }
 
 export default NewsThumbs;

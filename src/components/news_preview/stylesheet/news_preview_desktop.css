@@ -29,4 +29,7 @@
     .npd-img img{        
         width: 100%;        
     }
+    .npd-img img:hover{        
+        opacity: 0.6;       
+    }
 }

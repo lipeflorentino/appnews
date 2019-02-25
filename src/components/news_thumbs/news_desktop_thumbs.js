@@ -3,24 +3,35 @@ import React, { Component, Fragment } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
+//importando funcao para computar like
+import { addALike } from './javascript/add_a_like.js';
+
+//importando css
 import './stylesheet/news_thumbs_desktop.css';
+
 
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 
+
 class NewsDesktopThumbs extends Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
             news: [],
             isLoading: false,
-            error: null,
+            error: null,   
+            message: '',
         };
-    }
+        this.handleClick = this.handleClick.bind(this);
+        
+    }    
 
     componentDidMount() {
+        
         this.setState({ isLoading: true });
+        
         fetch(api)
           .then(response => {
             if (response.ok) {
@@ -30,7 +41,11 @@ class NewsDesktopThumbs extends Component {
             }
           })
           .then(data => this.setState({ news: data, isLoading: false  }))
-          .catch(error => this.setState({ error, isLoading: false }));
+          .catch(error => this.setState({ error, isLoading: false })); 
+        
+        const addListeners = this.state.news.map((n) =>
+          document.getElementById("thumbsId"+n.id).addEventListener('click', this.handleClick(n.id)),
+        ); 
         
     }
     
@@ -54,8 +69,9 @@ class NewsDesktopThumbs extends Component {
                                 <div className="dt-img">
                                     <img src={url + n.imagem}></img>
                                     <div className="dt-title">
+                                        <div id={'thumbs-id'+n.id}></div>
                                         <Icon small>favorite</Icon>
-                                        <p>{n.num_likes}</p>
+                                        <p id="p-likes">{n.num_likes}</p>
                                     </div>
                                 </div>
                                 <div className="n-infos">
@@ -79,6 +95,12 @@ class NewsDesktopThumbs extends Component {
             </Fragment>
         );
     }
+    
+    
+     handleClick(userId) {    
+        addALike(userId);                        
+      }
+    
 }
 
 export default NewsDesktopThumbs;
