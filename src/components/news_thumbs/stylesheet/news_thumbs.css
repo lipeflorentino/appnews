@@ -24,6 +24,13 @@
         color: #2699FB;
         padding-top: 0;
     }
+    .card-title i.small{
+        cursor: pointer;
+    }
+    .card-title i.small:hover{        
+        transition:0.3s;
+        color:#7FC4FD;
+    }
     .card .card-image .card-title p{
         font-family: arial;
         font-weight: bold;
@@ -83,5 +90,19 @@
         position: absolute;
         width: 40px;
         height: 30px;
+    }
+    .loader {
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+      margin: 20px 45%;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 }

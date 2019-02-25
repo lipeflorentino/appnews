@@ -41,24 +41,31 @@ class NewsPreviewDesktop extends Component {
           .then(data => this.setState({ news: data, isLoading: false  }))
           .catch(error => this.setState({ error, isLoading: false }));
     }
+    
+    ordena(list){
+        console.log("ordenando...");
+        const news_order = list.sort(function (a, b) {
+            return (a.num_likes <= b.num_likes) ? 1 : ((b.num_likes <= a.num_likes) ? -1 : 0);
+        });
+        return news_order;
+    }
 
     render() {
-        const { news, isLoading, error } = this.state;
-        console.log(news);
+        const { news, isLoading, error } = this.state;    
         
         if (error) {
           return <p>{error.message}</p>;
         }
         
         if (isLoading) {
-          return <p>Loading ...</p>;
+          return <div className="loader"></div>;
         }
         
         return (
             <div className="news-preview-desktop">
                 <a href="https://www.google.com" target="_blank">
                 {
-                    news.map((n, i) => {
+                    this.ordena(news).map((n, i) => {
                       return (
                         <div className="npd-infos" id="npd-infos" key={i}>
                           <Col m={12} s={4}>

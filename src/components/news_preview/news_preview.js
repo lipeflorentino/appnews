@@ -36,6 +36,14 @@ class NewsPreview extends Component {
           .then(data => this.setState({ news: data, isLoading: false  }))
           .catch(error => this.setState({ error, isLoading: false }));
     }
+    
+    ordena(list){
+        console.log("ordenando...");
+        const news_order = list.sort(function (a, b) {
+            return (a.data_publicacao <= b.data_publicacao) ? 1 : ((b.data_publicacao <= a.data_publicacao) ? -1 : 0);
+        });
+        return news_order;
+    }
 
     render() {
         const { news, isLoading, error } = this.state;
@@ -46,7 +54,7 @@ class NewsPreview extends Component {
         }
         
         if (isLoading) {
-          return <p>Loading ...</p>;
+          return <div className="loader"></div>;
         }
         
         return (
@@ -55,14 +63,14 @@ class NewsPreview extends Component {
                 dataLength={this.state.news.length} 
                 next={this.loadData}
                 hasMore={true}
-                loader={<h4>Loading...</h4>}
+                loader={<div className="loader"></div>}
                 endMessage={
                     <p style={{textAlign: 'center'}}>
                       <b>Yay! You have seen it all</b>
                     </p>
                 }>              
                 {
-                    news.map((n, i) => {
+                    this.ordena(news).map((n, i) => {
                       return (
                         <div className="np-infos" id="infos" key={i}>
                           <Col m={12} s={8}>

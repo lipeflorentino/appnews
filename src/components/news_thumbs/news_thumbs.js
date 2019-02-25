@@ -25,21 +25,44 @@ class NewsThumbs extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        
-        document.getElementById("app-container").addEventListener('click', this.handleClick);        
-        
-        fetch(api)
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error('Something went wrong ...');
-            }
-          })
-          .then(data => this.setState({ news: data, isLoading: false  }))
-          .catch(error => this.setState({ error, isLoading: false }));
-        
+        this.loadData();     
+        this.addListeners();         
     }
+    
+    addListeners = () => {
+        console.log("addListeners!!!");
+        this.state.news.map((n) =>
+            document.getElementById("thumbs-id"+n.id).addEventListener('click', console.log("chamou addlistener!")),
+        ); 
+    }
+    
+    loadData = () => {
+        fetch(api)
+            .then(response => {
+                if (response.ok) {
+                  return response.json();
+                } else {
+                  throw new Error('Something went wrong ...');
+                }
+            })
+            .then(data => this.setState({ news: data, isLoading: false  }))
+            .catch(error => this.setState({ error, isLoading: false }));
+    }
+    
+    ordena(list){
+        console.log("ordenando...");
+        const news_order = list.sort(function (a, b) {
+            return (a.data_publicacao <= b.data_publicacao) ? 1 : ((b.data_publicacao <= a.data_publicacao) ? -1 : 0);
+        });
+        return news_order;
+    }
+    
+    handleClick() {
+        this.setState({
+          message: this.state.news.id,
+        });
+        addALike(this.state.news.id);                
+      }
         
     render() {
         const { news, isLoading, error } = this.state;
@@ -49,7 +72,7 @@ class NewsThumbs extends Component {
         }
         
         if (isLoading) {
-          return <p>Loading ...</p>;
+          return <div className="loader"></div>;
         }
          
         return (
@@ -83,13 +106,7 @@ class NewsThumbs extends Component {
             </Fragment>
         );
     }
-    
-    handleClick() {
-        this.setState({
-          message: this.state.news.id,
-        });
-        addALike(this.state.news.id);                
-      }
+     
 }
 
 export default NewsThumbs;
