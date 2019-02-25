@@ -78,7 +78,7 @@ class NewsThumbs extends Component {
             <Fragment>
                 <Carousel loop className="mycarousel" widgets={[IndicatorDots]}>
                     {
-                        news.map((n, key) =>                        
+                        this.ordena(news).map((n, key) =>                        
                             <Card key={key} className='small' 
                                 header={
                                     <CardTitle image={url + n.imagem}>

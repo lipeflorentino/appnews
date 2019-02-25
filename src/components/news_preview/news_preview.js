@@ -47,7 +47,7 @@ class NewsPreview extends Component {
     ordena(list){
         console.log("ordenando...");
         const news_order = list.sort(function (a, b) {
-            return (a.data_publicacao <= b.data_publicacao) ? 1 : ((b.data_publicacao <= a.data_publicacao) ? -1 : 0);
+            return (a.num_likes <= b.num_likes) ? 1 : ((b.num_likes <= a.num_likes) ? -1 : 0);
         });
         return news_order;
     }
