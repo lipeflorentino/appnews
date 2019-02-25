@@ -21,7 +21,7 @@ class NewsDesktopThumbs extends Component {
         this.state = {
             news: [],
             isLoading: false,
-            error: null,               
+            error: null,                           
         };
         this.handleClick = this.handleClick.bind(this);
         
@@ -30,18 +30,9 @@ class NewsDesktopThumbs extends Component {
     //setando estado carregando e chamando function para pegar dados da api
     componentDidMount() {        
         this.setState({ isLoading: true });
-        this.loadData();     
-        this.addListeners();                    
+        this.loadData();                    
     }   
-    
-    //function para adicionar listeners nos icones de like 
-    addListeners = () => {
-        console.log("addListeners!!!");
-        this.state.news.map((n) =>
-            document.getElementById("thumbs-id"+n.id).addEventListener('click', console.log("chamou addlistener!")),
-        ); 
-    }
-    
+        
     //function para pegar dados da api
     loadData = () => {
         console.log("Loading Data...");
@@ -66,10 +57,11 @@ class NewsDesktopThumbs extends Component {
         return news_order;
     }
     
-    //function para chamar a funcao de add likes
-    handleClick(userId){    
-        console.log('handleClick activated!!!');
-        addALike(userId);                        
+    //function para chamar a funcao de add likes    
+    handleClick(param, e) {
+        console.log('Parameter', param);
+        console.log('Event', e);
+        addALike(param);        
     }
     
     //renderizar
@@ -89,14 +81,16 @@ class NewsDesktopThumbs extends Component {
             <Fragment> 
                 <Row>                    
                     {
+                            
                         this.ordena(news).map((n, key) =>                             
                             <Col key={key} m={6}>
                                 <div className="dt-img">
                                     <img src={url + n.imagem}></img>
                                     <div className="dt-title">
-                                        <div id={'thumbs-id'+n.id} className="tb-click" ></div>
-                                        <Icon small>favorite</Icon>
-                                        <p id="p-likes">{n.num_likes}</p>
+                                        <div onClick={this.handleClick.bind(this, n.id)}  className="tb-click">
+                                            <Icon small>favorite</Icon>
+                                        </div>                                        
+                                        <p id={'thumbs-id'+n.id} >{n.num_likes}</p>
                                     </div>
                                 </div>
                                 <div className="n-infos">
@@ -113,6 +107,7 @@ class NewsDesktopThumbs extends Component {
                                     <div className="clearfix"></div>
                                 </div>                                 
                             </Col>
+                            
                         )
         
                     }     

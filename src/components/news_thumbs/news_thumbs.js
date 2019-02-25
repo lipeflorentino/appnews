@@ -29,17 +29,8 @@ class NewsThumbs extends Component {
     //setando estado carregando e chamando function para pegar dados da api
     componentDidMount() {
         this.setState({ isLoading: true });
-        this.loadData();     
-        this.addListeners();         
-    }
-    
-    //function para adicionar listeners nos icones de like
-    addListeners = () => {
-        console.log("addListeners!!!");
-        this.state.news.map((n) =>
-            document.getElementById("thumbs-id"+n.id).addEventListener('click', console.log("chamou addlistener!")),
-        ); 
-    }
+        this.loadData();                     
+    }    
     
     //function para pegar dados da api
     loadData = () => {
@@ -64,13 +55,12 @@ class NewsThumbs extends Component {
         return news_order;
     }
     
-    //function para chamar a funcao de add likes
-    handleClick() {
-        this.setState({
-          message: this.state.news.id,
-        });
-        addALike(this.state.news.id);                
-      }
+    //function para chamar a funcao de add likes       
+    handleClick(param, e) {
+        console.log('Parameter', param);
+        console.log('Event', e);
+        addALike(param);        
+    }
         
     //renderizar
     render() {
@@ -92,14 +82,15 @@ class NewsThumbs extends Component {
                             <Card key={key} className='small' 
                                 header={
                                     <CardTitle image={url + n.imagem}>
-                                        <Icon small>favorite</Icon>
-                                        <p>{n.num_likes}</p>
+                                        <div onClick={this.handleClick.bind(this, n.id)}  className="tb-click">
+                                            <Icon small>favorite</Icon>
+                                        </div>
+                                        <p id={'thumbs-id'+n.id} >{n.num_likes}</p>
                                     </CardTitle>
                                         }>
                                 <p>{n.descricao}</p>
                                 <div className="n-infos">
-                                    <span className="n-titulo">
-                                        <div id={'thumbs-id'+n.id}></div>
+                                    <span className="n-titulo">                                 
                                         <Icon small>public</Icon> 
                                         <p>{n.titulo} </p>
                                     </span>

@@ -12,8 +12,9 @@ fetch(api_url, {
 })
 .then(response => response.json()) // retorna uma promise
 .then(result => {                
-    console.log('adicionei 1 like!');
-    document.getElementById("p-likes").textContent = result.num_likes;
+    console.log('adicionei 1 like em userId: ' + userId);
+    console.log(result[0].num_likes);
+    document.getElementById("thumbs-id"+userId).innerHTML = result[0].num_likes;
 })
 .catch(err => {
     // trata se alguma das promises falhar

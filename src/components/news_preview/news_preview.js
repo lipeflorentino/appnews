@@ -66,11 +66,7 @@ class NewsPreview extends Component {
         }
         
         return (
-          <div className="news-preview">
-            
-            //infinite scroll não está funcionando pois os resultados 
-            //estao vindo todos de uma vez
-            
+          <div className="news-preview">            
             <InfiniteScroll
                 dataLength={this.state.news.length} 
                 next={this.loadData}
