@@ -1,3 +1,4 @@
+//importando components para scroll infinito
 import InfiniteLoader from 'react-infinite-loader';
 import InfiniteScroll from 'react-infinite-scroll-component';
 // Importando o React e component
@@ -5,11 +6,13 @@ import React, { Component } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col } from 'react-materialize';
 
+//declarando url da api e da imagem
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 const url = 'data:image/jpeg;base64,';
 
-
+//NewsPreview
 class NewsPreview extends Component {
+    //constructor
     constructor(props) {
         super(props);
 
@@ -19,11 +22,14 @@ class NewsPreview extends Component {
             error: null,
         };
     }
-
+    
+    //setando estado carregando e chamando function para pegar dados da api
     componentDidMount() {        
         this.setState({ isLoading: true });  
         this.loadData();
     }
+    
+    //function para pegar dados da api
     loadData = () => {
         fetch(api)
           .then(response => {
@@ -37,6 +43,7 @@ class NewsPreview extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
     }
     
+    //function para ordenar dados da api
     ordena(list){
         console.log("ordenando...");
         const news_order = list.sort(function (a, b) {
@@ -45,20 +52,25 @@ class NewsPreview extends Component {
         return news_order;
     }
 
+    //renderizar
     render() {
-        const { news, isLoading, error } = this.state;
-        console.log(news);
+        const { news, isLoading, error } = this.state;        
         
         if (error) {
-          return <p>{error.message}</p>;
+            return <p>{error.message}</p>;
         }
         
         if (isLoading) {
-          return <div className="loader"></div>;
+            //icone de loading...
+            return <div className="loader"></div>;
         }
         
         return (
           <div className="news-preview">
+            
+            //infinite scroll não está funcionando pois os resultados 
+            //estao vindo todos de uma vez
+            
             <InfiniteScroll
                 dataLength={this.state.news.length} 
                 next={this.loadData}

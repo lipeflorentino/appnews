@@ -2,16 +2,19 @@
 import React, { Component, Fragment } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
-
+//important component de carousel e dots
 import Carousel from 're-carousel';
 import IndicatorDots from './javascript/indicator-dots.js';
 //importando funcao para computar like
 import { addALike } from './javascript/add_a_like.js';
 
+//declarando url da api e da imagem
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 
+//NewsThumbs(mobile)
 class NewsThumbs extends Component {
+    //constructor
     constructor(props) {
         super(props);
 
@@ -22,13 +25,15 @@ class NewsThumbs extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
-
+    
+    //setando estado carregando e chamando function para pegar dados da api
     componentDidMount() {
         this.setState({ isLoading: true });
         this.loadData();     
         this.addListeners();         
     }
     
+    //function para adicionar listeners nos icones de like
     addListeners = () => {
         console.log("addListeners!!!");
         this.state.news.map((n) =>
@@ -36,6 +41,7 @@ class NewsThumbs extends Component {
         ); 
     }
     
+    //function para pegar dados da api
     loadData = () => {
         fetch(api)
             .then(response => {
@@ -49,6 +55,7 @@ class NewsThumbs extends Component {
             .catch(error => this.setState({ error, isLoading: false }));
     }
     
+    //function para ordenar dados da api
     ordena(list){
         console.log("ordenando...");
         const news_order = list.sort(function (a, b) {
@@ -57,6 +64,7 @@ class NewsThumbs extends Component {
         return news_order;
     }
     
+    //function para chamar a funcao de add likes
     handleClick() {
         this.setState({
           message: this.state.news.id,
@@ -64,6 +72,7 @@ class NewsThumbs extends Component {
         addALike(this.state.news.id);                
       }
         
+    //renderizar
     render() {
         const { news, isLoading, error } = this.state;
         

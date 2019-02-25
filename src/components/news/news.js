@@ -2,7 +2,7 @@
 import React from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card } from 'react-materialize';
-
+//importando componente de media query
 import MediaQuery from "react-responsive";
 // Importando o Component Header
 import Header from '../header/header'
@@ -18,6 +18,7 @@ import '../news_preview/stylesheet/news_preview.css';
 import '../news_preview/stylesheet/news_preview_switch.scss';
 import './stylesheet/news.css';
 
+//News
 const News = () => (
   
     <Row>

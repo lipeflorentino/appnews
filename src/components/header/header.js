@@ -2,12 +2,14 @@
 import React from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Input} from 'react-materialize';
-
+//Importando css e scss files
 import './stylesheet/header.css';
 import './stylesheet/header-switch.scss';
 import './stylesheet/header-desktop.css';
+//importando function de toggle mode dark/light
 import { toggleDarkLight } from './javascript/switch-mode.js';
 
+//header
 const Header = () => (
     <div className="header-info" >
         <div className="switch">

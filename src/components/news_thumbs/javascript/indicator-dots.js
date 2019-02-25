@@ -1,3 +1,4 @@
+//component do react para mostrar dots no carousel
 import React from 'react'
 import PropTypes from 'prop-types'
 

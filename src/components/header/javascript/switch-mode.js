@@ -1,3 +1,5 @@
+//function para alternar mode dark/light
+
 export function toggleDarkLight() {
   console.log('chamou o toggle func!');
   const container = document.getElementById("app-container");

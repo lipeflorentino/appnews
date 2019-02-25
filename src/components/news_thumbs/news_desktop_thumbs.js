@@ -9,11 +9,11 @@ import { addALike } from './javascript/add_a_like.js';
 //importando css
 import './stylesheet/news_thumbs_desktop.css';
 
-
+//declarando url da api e da imagem
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 
-
+//NewsDesktopThumbs
 class NewsDesktopThumbs extends Component {
     constructor(props) {
         super(props);
@@ -25,14 +25,16 @@ class NewsDesktopThumbs extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
         
-    }    
-
+    }   
+    
+    //setando estado carregando e chamando function para pegar dados da api
     componentDidMount() {        
         this.setState({ isLoading: true });
         this.loadData();     
         this.addListeners();                    
     }   
     
+    //function para adicionar listeners nos icones de like 
     addListeners = () => {
         console.log("addListeners!!!");
         this.state.news.map((n) =>
@@ -40,6 +42,7 @@ class NewsDesktopThumbs extends Component {
         ); 
     }
     
+    //function para pegar dados da api
     loadData = () => {
         console.log("Loading Data...");
         fetch(api)
@@ -54,6 +57,7 @@ class NewsDesktopThumbs extends Component {
           .catch(error => this.setState({ error, isLoading: false }));                  
     }
     
+    //function para ordenar dados da api
     ordena(list){
         console.log("ordenando...");
         const news_order = list.sort(function (a, b) {
@@ -62,11 +66,13 @@ class NewsDesktopThumbs extends Component {
         return news_order;
     }
     
+    //function para chamar a funcao de add likes
     handleClick(userId){    
         console.log('handleClick activated!!!');
         addALike(userId);                        
     }
     
+    //renderizar
     render() {
         
         const { news, isLoading, error } = this.state;
